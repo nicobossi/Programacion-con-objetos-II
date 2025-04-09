@@ -1,10 +1,11 @@
 package unq.po2.tp3.multioperator;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Multioperator {
 	
-	private ArrayList<Integer> numbers;
+	private List<Integer> numbers;
 
 	public Multioperator() {
 		setNumbers();
@@ -18,7 +19,7 @@ public class Multioperator {
 
 
 
-	private ArrayList<Integer> getNumbers() {
+	private List<Integer> getNumbers() {
 		return this.numbers;
 	}
 	

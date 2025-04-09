@@ -1,13 +1,14 @@
 package unq.po2.tp3.workTeam;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import unq.po2.tp3.person.Person;
 
 public class WorkTeam {
 	
 	private String name;
-	private ArrayList<Person> workers;
+	private List<Person> workers;
 
 	public WorkTeam(String name) {
 		setName(name);
@@ -38,7 +39,7 @@ public class WorkTeam {
 		return getWorkers().size();
 	}
 
-	private ArrayList<Person> getWorkers() {
+	private List<Person> getWorkers() {
 		return this.workers;
 	}
 

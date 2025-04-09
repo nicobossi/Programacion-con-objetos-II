@@ -1,11 +1,12 @@
 package unq.po2.tp3.counter;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 
 public class Counter {
 	
-	private ArrayList<Integer> numbers;
+	private List<Integer> numbers;
 	
 	public Counter() {
 		setNumbers();
@@ -58,7 +59,7 @@ public class Counter {
 	}
 
 
-	private void addNumbers(ArrayList<Integer> numbers, Integer[] newNumbers) {
+	private void addNumbers(List<Integer> numbers, Integer[] newNumbers) {
 		
 		int count = 0;
 		
@@ -146,7 +147,7 @@ public class Counter {
 	}
 
 
-	private ArrayList<Integer> getNumbers() {
+	private List<Integer> getNumbers() {
 		return numbers;
 	}
 	

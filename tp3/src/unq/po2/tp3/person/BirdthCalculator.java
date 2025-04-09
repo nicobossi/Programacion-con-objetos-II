@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class BirdthCalculator {
 
-	public int calculateTo(Person person) {
+	int calculateTo(Person person) {
 		return haveBirthday(person) ? currentAge(person) : newAgeTo(person);
 	}
 
