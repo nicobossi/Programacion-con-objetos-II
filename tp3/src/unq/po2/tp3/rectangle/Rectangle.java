@@ -50,11 +50,11 @@ public class Rectangle {
 		this.location = aPoint;
 	}
 
-	private int getHeight() {
+	protected int getHeight() {
 		return this.height;
 	}
 
-	private int getWidth() {
+	protected int getWidth() {
 		return this.width;
 	}
 

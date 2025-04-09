@@ -24,5 +24,24 @@ class SquareTest {
 		assertFalse(square.isHorizontally());
 		assertFalse(square.isVertical());
 	}
+	
+	
+	@Test
+	void ElAreaEsLaLongitudDeSusLadosElevadoALaDos() {
+		
+		Square aSquare = new Square(aPoint, 10);
+		
+		assertEquals(100, aSquare.area());
+	}
+	
+	
+	@Test
+	void ElPerimetroSonSusLadosPorCuatro() {
+
+		Square aSquare = new Square(aPoint, 5);
+		
+		assertEquals(5 * 4, aSquare.perimeter());
+		
+	}
 
 }
