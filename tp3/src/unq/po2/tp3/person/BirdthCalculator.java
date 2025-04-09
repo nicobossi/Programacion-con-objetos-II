@@ -5,23 +5,31 @@ import java.time.LocalDate;
 public class BirdthCalculator {
 
 	int calculateTo(Person person) {
-		return haveBirthday(person) ? currentAge(person) : newAgeTo(person);
+		return hasBirthday(person) ? newAgeTo(person) : currentAge(person);
 	}
 
 	private int newAgeTo(Person person) {
-		return currentAge(person);
+		return currentAge(person) + 1;
 	}
 
 	private int currentAge(Person person) {
-		return LocalDate.now().getYear() - person.yearToBirdth() - 1;
+		return currentYear() - person.yearToBirdth() - 1;
 	}
 
-	private boolean haveBirthday(Person person) {
+	private int currentYear() {
+		return LocalDate.now().getYear();
+	}
+
+	private boolean hasBirthday(Person person) {
 		return wasBirdthdayThisMounth(person);
 	}
 	
 	private boolean wasBirdthdayThisMounth(Person person) {
-		return LocalDate.now().getMonthValue() > person.monthToBirdth();
+		return currentMonth() > person.monthToBirdth();
+	}
+
+	private int currentMonth() {
+		return LocalDate.now().getMonthValue();
 	}
 
 

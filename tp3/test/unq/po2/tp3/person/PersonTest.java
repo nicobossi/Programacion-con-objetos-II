@@ -32,22 +32,27 @@ class PersonTest {
 	
 	
 	@Test
-	void UnaPersonaTieneUnaEdad() {
+	void UnaPersonaSabeSuEdadAntesDeSuCumpliranios() {
 		
 		assertEquals(29, aPerson.ages());
 	}
 	
-	
+	@Test
+	void UnaPersonaSabeSuEdadDespuesDeSuCumpliranios() {
+		
+		Person aPerson = new Person("Mariano Closs", new GregorianCalendar(1995, 01, 05));
+		
+		assertEquals(30, aPerson.ages());
+	}
 	
 	@Test
 	void UnaPersonaSabeSiEsMenorAOtra() {
 		
-		Calendar calender = new GregorianCalendar(2000, 6, 20);
-		Person youngPerson = new Person("Mariano Pastore", calender);
+		Person youngPerson = new Person("Mariano Pastore", new GregorianCalendar(2000, 6, 20));
 		
 		assertFalse(aPerson.isYoungTo(youngPerson));
 		
-		assertTrue(youngPerson.isYoungTo(aPerson));
+		assertTrue(youngPerson.isYoungTo(aPerson)); // POSTCONDITION
 	}
 
 }
