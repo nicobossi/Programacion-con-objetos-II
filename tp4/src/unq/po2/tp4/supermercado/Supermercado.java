@@ -22,7 +22,7 @@ public class Supermercado {
 		getProductos().add(unProducto);
 	}
 	
-	public int getCantidadDeProductos() {
+	public Integer getCantidadDeProductos() {
 		
 		return getProductos().size();
 	}
