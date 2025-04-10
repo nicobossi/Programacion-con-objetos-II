@@ -39,7 +39,11 @@ public class ProductoPrimeraNecesidad extends Producto {
 	}
 	
 	private void initializeDescuento() {
-		this.descuento = 0.9;
+		this.descuento = defoultDescuento();
+	}
+
+	private double defoultDescuento() {
+		return 0.9;
 	}
 
 }
