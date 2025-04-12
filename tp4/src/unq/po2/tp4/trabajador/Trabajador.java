@@ -18,10 +18,12 @@ public class Trabajador {
 	}
 
 	public Double getMontoImponible() {
+		
 		return getIngreso().montoImponible();
 	}
 
 	public Double getImpuestoAPagar() {
+		
 		return new ImpuestoAlTrabajo().calcularImpuesto(this);
 	}
 	
