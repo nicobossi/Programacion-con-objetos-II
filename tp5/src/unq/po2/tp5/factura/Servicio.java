@@ -1,6 +1,6 @@
-package unq.po2.tp5.servicio;
+package unq.po2.tp5.factura;
 
-public class Servicio {
+public class Servicio extends Factura {
 
 	private Integer cantidadDeUnidades;
 	private Double costoPorUnidad;

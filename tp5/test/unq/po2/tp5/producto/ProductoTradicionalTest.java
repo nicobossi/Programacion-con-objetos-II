@@ -7,13 +7,13 @@ import org.junit.jupiter.api.Test;
 
 import unq.po2.tp5.caja.Caja;
 
-public class ProductoDeEmpresaTradicionalTest {
+public class ProductoTradicionalTest {
 
-	private ProductoDeEmpresaTradicional producto;
+	private ProductoTradicional producto;
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		producto = new ProductoDeEmpresaTradicional(1, Double.valueOf(100));
+		producto = new ProductoTradicional(1, Double.valueOf(100));
 	}
 
 	@Test
@@ -33,7 +33,7 @@ public class ProductoDeEmpresaTradicionalTest {
 	@Test
 	public void test_UnProductoNoTieneStock() throws Exception {
 		
-		Producto producto = new ProductoDeEmpresaTradicional(1, Double.valueOf(0));
+		ProductoTradicional producto = new ProductoTradicional(1, Double.valueOf(0));
 		
 		producto.decrementarStock();
 		

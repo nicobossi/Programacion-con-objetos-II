@@ -1,14 +1,27 @@
 package unq.po2.tp5.caja;
 
-import unq.po2.tp5.producto.Producto;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Caja {
+import unq.po2.tp5.agencia.Agencia;
+import unq.po2.tp5.factura.Factura;
+import unq.po2.tp5.pagable.Pagable;
+
+public class Caja implements Agencia {
 	
 	private Double montoTotal;
+	private List<Factura> facturas;
 	
 	public Caja() {
 		
 		initializeMonto();
+		initializeFacturas();
+	}
+
+
+	public void acumularMonto(Pagable unPagable) {
+		
+		setMonto(unPagable.precio());
 	}
 
 	public Double getMontoTotal() {
@@ -16,11 +29,29 @@ public class Caja {
 		return this.montoTotal;
 	}
 
-	public void registrar(Producto producto) throws Exception {
+	public void procesar(Pagable unPagable) throws Exception {
 		
-		producto.prepararPago(this);
+		unPagable.prepararPago(this);
 	}
 
+	@Override
+	public void registrarPago(Factura unaFactura) {
+		
+		acumularMonto(unaFactura);
+		getFacturas().add(unaFactura);
+		
+	}
+
+	private List<Factura> getFacturas() {
+		
+		return this.facturas;
+	}
+	
+	private void initializeFacturas() {
+		
+		this.facturas = new ArrayList<Factura>();
+	}
+	
 	private void setMonto(Double precio) {
 		
 		this.montoTotal += precio;
@@ -29,11 +60,6 @@ public class Caja {
 	private void initializeMonto() {
 		
 		this.montoTotal = Double.valueOf(0);
-	}
-
-	public void acumularMonto(Producto producto) {
-		
-		setMonto(producto.precio());
 	}
 
 }

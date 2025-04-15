@@ -1,13 +1,15 @@
 package unq.po2.tp5.producto;
 
 import unq.po2.tp5.caja.Caja;
+import unq.po2.tp5.pagable.Pagable;
 
-public abstract class Producto {
+public class ProductoTradicional implements Pagable {
 	
-	private Integer stock;
-	private Double precio;
+	protected Integer stock;
+	protected Double precio;
 
-	public Producto(Integer stock, Double precio) {
+	public ProductoTradicional(Integer stock, Double precio) {
+		
 		setStock(stock);
 		setPrecio(precio);
 	}
@@ -20,10 +22,12 @@ public abstract class Producto {
 
 
 	public boolean hayStock() {
+		
 		return getStock() > 0;
 	}
 
 	public Double precio() {
+		
 		return this.precio;
 	}
 
@@ -39,19 +43,23 @@ public abstract class Producto {
 	}
 
 	private String mensajeDeStock() {
+		
 		return "El producto no tiene más stock";
 	}
 	
 	private void setStock(Integer stock) {
+		
 		this.stock = stock;
 		
 	}
 	
 	private void setPrecio(Double precio) {
+		
 		this.precio = precio;
 	}
 	
 	private Integer getStock() {
+		
 		return this.stock;
 	}
 }

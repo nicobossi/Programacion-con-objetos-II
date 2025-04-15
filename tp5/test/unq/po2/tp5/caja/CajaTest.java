@@ -4,15 +4,26 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import unq.po2.tp5.factura.Impuesto;
+import unq.po2.tp5.factura.Servicio;
+import unq.po2.tp5.pagable.Pagable;
 import unq.po2.tp5.producto.ProductoDeCooperativa;
 
 class CajaTest {
 
 	private Caja caja; 
+	private Pagable producto;
+	private Pagable servicio;
+	private Pagable impuesto;
 	
 	@BeforeEach
 	void setUp() throws Exception {
+		
 		caja = new Caja();
+		producto = new ProductoDeCooperativa(5, Double.valueOf(50));
+		servicio = new Servicio(Double.valueOf(40), 2);
+		impuesto = new Impuesto(Double.valueOf(50));
 	}
 
 	@Test
@@ -24,17 +35,27 @@ class CajaTest {
 	@Test
 	void test_UnaCajaAcumulaMonto() {
 		
-		caja.acumularMonto(new ProductoDeCooperativa(1, Double.valueOf(3)));
+		caja.acumularMonto(producto);
 		
-		assertEquals(3, caja.getMontoTotal());
+		assertEquals(Double.valueOf(45), caja.getMontoTotal());
 	}
 	
 	@Test
 	void test_AlRegistrarUnProducto_ElMontoAumenta() throws Exception {
 		
-		caja.registrar(new ProductoDeCooperativa(5, Double.valueOf(50)));
+		caja.procesar(producto);
 		
-		assertEquals(Double.valueOf(50), caja.getMontoTotal());
+		assertEquals(Double.valueOf(45), caja.getMontoTotal());
+	}
+	
+	@Test
+	void test_AlRegistrarPagables_ElMontoTotalSeSuman() throws Exception {
+		
+		caja.procesar(producto);
+		caja.procesar(servicio);
+		caja.procesar(impuesto);
+		
+		assertEquals(Double.valueOf(175), caja.getMontoTotal());
 	}
 
 }
