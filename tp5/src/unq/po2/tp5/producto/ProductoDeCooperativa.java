@@ -1,9 +1,9 @@
 package unq.po2.tp5.producto;
 
-public class ProductoDeCooperativa extends ProductoTradicional {
+public class ProductoDeCooperativa extends Producto {
 
-	public ProductoDeCooperativa(Integer stock, Double precio) {
-		super(stock, precio);
+	public ProductoDeCooperativa(String nombre, Integer stock, Double precio) {
+		super(nombre, stock, precio);
 		
 	}
 
@@ -13,11 +13,12 @@ public class ProductoDeCooperativa extends ProductoTradicional {
 	
 	@Override
 	public Double precio() {
-		return super.precio() - descuentoPorIva();
+		return getPrecio() - descuentoPorIva();
 	}
 
-	private double descuentoPorIva() {
-		return super.precio() / 100 * 10;
+	private Double descuentoPorIva() {
+		
+		return getPrecio() / 100 * 10;
 	}
 
 }

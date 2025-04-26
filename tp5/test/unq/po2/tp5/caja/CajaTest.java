@@ -21,7 +21,7 @@ class CajaTest {
 	void setUp() throws Exception {
 		
 		caja = new Caja();
-		producto = new ProductoDeCooperativa(5, Double.valueOf(50));
+		producto = new ProductoDeCooperativa("Arroz", 5, Double.valueOf(50));
 		servicio = new Servicio(Double.valueOf(40), 2);
 		impuesto = new Impuesto(Double.valueOf(50));
 	}

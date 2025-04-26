@@ -9,11 +9,18 @@ import unq.po2.tp5.caja.Caja;
 
 public class ProductoTradicionalTest {
 
-	private ProductoTradicional producto;
+	private Producto producto;
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		producto = new ProductoTradicional(1, Double.valueOf(100));
+		
+		producto = new ProductoTradicional("Arroz", 1, Double.valueOf(100));
+	}
+	
+	@Test
+	public void test_UnProductoTieneUnNombre() {
+		
+		assertEquals("Arroz", producto.getNombre());
 	}
 
 	@Test
@@ -33,7 +40,7 @@ public class ProductoTradicionalTest {
 	@Test
 	public void test_UnProductoNoTieneStock() throws Exception {
 		
-		ProductoTradicional producto = new ProductoTradicional(1, Double.valueOf(0));
+		Producto producto = new ProductoTradicional("Yerba", 1, Double.valueOf(0));
 		
 		producto.decrementarStock();
 		

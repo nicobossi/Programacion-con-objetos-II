@@ -11,7 +11,7 @@ class ProductoDeCooperativaTest {
 		
 	@BeforeEach
 	void setUp() throws Exception {
-		producto = new ProductoDeCooperativa(5, Double.valueOf(50));
+		producto = new ProductoDeCooperativa("Costilla de Cerdo", 5, Double.valueOf(50));
 	}
 
 	@Test
