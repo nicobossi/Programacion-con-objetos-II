@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import unq.po2.tp6.banco.Banco;
+import unq.po2.tp6.banco.Tesoro;
 import unq.po2.tp6.cliente.Cliente;
 
 public class SolicitudDeCreditoTest {
@@ -49,7 +49,7 @@ public class SolicitudDeCreditoTest {
 	@Test
 	public void test_unaSolicitudDeCreditoEsAceptada() throws Exception {
 		
-		solicitud.aceptar(new Banco());
+		solicitud.aceptar(new Tesoro());
 		
 		assertTrue(solicitud.evaluar());
 	}
@@ -61,7 +61,7 @@ public class SolicitudDeCreditoTest {
 		
 		SolicitudDeCredito unaSolicitud  = new SolicitudPersonal(unCliente, Double.valueOf(1000), 5);
 		
-		assertThrows(Exception.class, () -> unaSolicitud.aceptar(new Banco()));
+		assertThrows(Exception.class, () -> unaSolicitud.aceptar(new Tesoro()));
 	}
 
 }

@@ -1,21 +1,14 @@
 package unq.po2.tp5.caja;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import unq.po2.tp5.agencia.Agencia;
-import unq.po2.tp5.factura.Factura;
 import unq.po2.tp5.pagable.Pagable;
 
-public class Caja implements Agencia {
+public class Caja {
 	
 	private Double montoTotal;
-	private List<Factura> facturas;
 	
 	public Caja() {
 		
 		initializeMonto();
-		initializeFacturas();
 	}
 
 
@@ -34,24 +27,6 @@ public class Caja implements Agencia {
 		unPagable.prepararPago(this);
 	}
 
-	@Override
-	public void registrarPago(Factura unaFactura) {
-		
-		acumularMonto(unaFactura);
-		getFacturas().add(unaFactura);
-		
-	}
-
-	private List<Factura> getFacturas() {
-		
-		return this.facturas;
-	}
-	
-	private void initializeFacturas() {
-		
-		this.facturas = new ArrayList<Factura>();
-	}
-	
 	private void setMonto(Double precio) {
 		
 		this.montoTotal += precio;

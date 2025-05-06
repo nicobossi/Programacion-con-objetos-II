@@ -1,6 +1,6 @@
 package unq.po2.tp6.credito;
 
-import unq.po2.tp6.banco.Banco;
+import unq.po2.tp6.banco.Tesoro;
 import unq.po2.tp6.cliente.Cliente;
 import unq.po2.tp6.iOperacionFinanciera.IOperacionFinanciera;
 import unq.po2.tp6.solicitudDeCredito.SolicitudDeCredito;
@@ -23,7 +23,7 @@ public class Credito implements IOperacionFinanciera {
 	}
 
 	@Override
-	public void descontarCuota(Banco unBanco, Cliente unCliente) {
+	public void descontarCuota(Tesoro unBanco, Cliente unCliente) {
 		
 		new Transaccion().pagar(unBanco, unCliente, this);
 	}
@@ -58,7 +58,7 @@ public class Credito implements IOperacionFinanciera {
 		this.mesesDePlazo = plazoDeMeses;
 	}
 
-	void pagar(Banco unBanco) {
+	void pagar(Tesoro unBanco) {
 		
 		unBanco.recibirPago(this);
 		disminuirPlazo();

@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import unq.po2.tp6.banco.Banco;
+import unq.po2.tp6.banco.Tesoro;
 import unq.po2.tp6.credito.Credito;
 import unq.po2.tp6.solicitudDeCredito.SolicitudPersonal;
 import unq.po2.tp6.iSolicitudFinanciera.ISolicitudFinanciera;
@@ -13,12 +13,12 @@ import unq.po2.tp6.iSolicitudFinanciera.ISolicitudFinanciera;
 public class ClienteTest {
 
 	private Cliente cliente;
-	private Banco banco;
+	private Tesoro banco;
 	
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		banco = new Banco();
+		banco = new Tesoro();
 		cliente = new Cliente("Nicolás", "Bossi", "Mosconi 1965", 29, Double.valueOf(800000));
 	}
 	

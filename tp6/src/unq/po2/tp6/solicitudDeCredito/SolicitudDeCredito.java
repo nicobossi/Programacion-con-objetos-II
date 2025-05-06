@@ -1,5 +1,5 @@
 package unq.po2.tp6.solicitudDeCredito;
-import unq.po2.tp6.banco.Banco;
+import unq.po2.tp6.banco.Tesoro;
 import unq.po2.tp6.cliente.Cliente;
 import unq.po2.tp6.credito.Credito;
 import unq.po2.tp6.iSolicitudFinanciera.ISolicitudFinanciera;
@@ -19,7 +19,7 @@ public abstract class SolicitudDeCredito implements ISolicitudFinanciera {
 	
 	public abstract Boolean evaluar();
 	
-	public void aceptar(Banco unBanco) throws Exception {
+	public void aceptar(Tesoro unBanco) throws Exception {
 		
 		if(!evaluar()) {
 			

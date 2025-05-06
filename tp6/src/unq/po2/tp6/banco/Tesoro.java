@@ -5,12 +5,12 @@ import unq.po2.tp6.credito.Credito;
 import unq.po2.tp6.iOperacionFinanciera.IOperacionFinanciera;
 import unq.po2.tp6.solicitudDeCredito.SolicitudDeCredito;
 
-public class Banco {
+public class Tesoro {
 	
 	private ManualDeAlta manualDeAlta;
 	private Double devoluciones;
 
-	public Banco() {
+	public Tesoro() {
 		
 		initializeManualDeAlta();
 		initializeDevoluciones();

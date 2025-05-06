@@ -1,11 +1,11 @@
 package unq.po2.tp6.credito;
 
-import unq.po2.tp6.banco.Banco;
+import unq.po2.tp6.banco.Tesoro;
 import unq.po2.tp6.cliente.Cliente;
 
 class Transaccion {
 
-	void pagar(Banco unBanco, Cliente unCliente, Credito unCredito) {
+	void pagar(Tesoro unBanco, Cliente unCliente, Credito unCredito) {
 		
 		try {
 			
@@ -19,7 +19,7 @@ class Transaccion {
 		
 	}
 	
-	private void iniciarPago(Banco unBanco, Credito unCredito) throws Exception {
+	private void iniciarPago(Tesoro unBanco, Credito unCredito) throws Exception {
 		
 		if(!unCredito.quedanPlazos()) {
 			

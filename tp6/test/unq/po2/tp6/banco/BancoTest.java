@@ -13,13 +13,13 @@ import unq.po2.tp6.solicitudDeCredito.SolicitudPersonal;
 public class BancoTest {
 	
 	private Cliente cliente;
-	private Banco banco;
+	private Tesoro banco;
 	private SolicitudDeCredito solicitud;
 
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		banco = new Banco();
+		banco = new Tesoro();
 		cliente = new Cliente("Nicolás", "Bossi", "Mosconi 1965", 29, Double.valueOf(800000));
 		solicitud = new SolicitudPersonal(cliente, Double.valueOf(4000), 4);
 	}

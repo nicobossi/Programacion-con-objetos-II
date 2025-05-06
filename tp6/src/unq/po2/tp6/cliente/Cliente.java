@@ -3,7 +3,7 @@ package unq.po2.tp6.cliente;
 import java.util.ArrayList;
 import java.util.List;
 
-import unq.po2.tp6.banco.Banco;
+import unq.po2.tp6.banco.Tesoro;
 import unq.po2.tp6.credito.Credito;
 import unq.po2.tp6.iOperacionFinanciera.IOperacionFinanciera;
 
@@ -103,7 +103,7 @@ public class Cliente {
 		this.edad = edad;
 	}
 
-	public void pagar(Banco unBanco) {
+	public void pagar(Tesoro unBanco) {
 		
 		getOperacionesFinancieras().getFirst().descontarCuota(unBanco, this);
 	}

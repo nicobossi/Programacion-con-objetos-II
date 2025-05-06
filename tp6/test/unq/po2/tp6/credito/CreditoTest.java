@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import unq.po2.tp6.banco.Banco;
+import unq.po2.tp6.banco.Tesoro;
 import unq.po2.tp6.cliente.Cliente;
 import unq.po2.tp6.iOperacionFinanciera.IOperacionFinanciera;
 import unq.po2.tp6.solicitudDeCredito.SolicitudDeCredito;
@@ -34,7 +34,7 @@ class CreditoTest {
 	@Test
 	void test_alPagarseUnCreditoElPlazoSeReduce() {
 		
-		credito.descontarCuota(new Banco(), cliente);
+		credito.descontarCuota(new Tesoro(), cliente);
 		
 		assertEquals(3, credito.getPlazo());
 	}
@@ -42,12 +42,12 @@ class CreditoTest {
 	@Test
 	void test_unCreditoConElPlazoFinalizadoNoSeTrandfiereALBanco() {
 		
-		Banco unBancoSinPlata = new Banco();
+		Tesoro unBancoSinPlata = new Tesoro();
 		
-		credito.descontarCuota(new Banco(), cliente);
-		credito.descontarCuota(new Banco(), cliente);
-		credito.descontarCuota(new Banco(), cliente);
-		credito.descontarCuota(new Banco(), cliente);
+		credito.descontarCuota(new Tesoro(), cliente);
+		credito.descontarCuota(new Tesoro(), cliente);
+		credito.descontarCuota(new Tesoro(), cliente);
+		credito.descontarCuota(new Tesoro(), cliente);
 		credito.descontarCuota(unBancoSinPlata, cliente);
 		
 		assertEquals(Double.valueOf(0), unBancoSinPlata.totalDeDesembolso());
