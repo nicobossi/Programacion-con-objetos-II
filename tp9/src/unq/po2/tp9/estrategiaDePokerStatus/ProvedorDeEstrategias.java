@@ -2,7 +2,6 @@ package unq.po2.tp9.estrategiaDePokerStatus;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.stream.Stream;
 
 import unq.po2.tp9.carta.ICarta;
