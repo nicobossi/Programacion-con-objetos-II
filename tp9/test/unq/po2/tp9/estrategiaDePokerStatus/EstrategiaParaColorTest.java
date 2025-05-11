@@ -1,42 +1,42 @@
 package unq.po2.tp9.estrategiaDePokerStatus;
 
+import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import unq.po2.tp9.carta.Carta;
 import unq.po2.tp9.carta.ICarta;
 
 class EstrategiaParaColorTest {
 	
 	private EstrategiaParaColor estrategia;
-	private ICarta dosDePicaRojo;
-	private ICarta tresDePicaRojo;
-	private ICarta cuatroDePicaRojo;
-	private ICarta cuatroDePicaAzul;
-
+	private ICarta unaCarta;
+	private ICarta otraCarta;
+	
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		estrategia = new EstrategiaParaColor();
-		dosDePicaRojo = new Carta(2, "Picas");
-		tresDePicaRojo = new Carta(3, "Picas");
-		cuatroDePicaRojo = new Carta(4, "Picas");
-		cuatroDePicaAzul = new Carta(4, "Corazones");
+		estrategia     = new EstrategiaParaColor();
+		unaCarta  = mock(ICarta.class);
+		otraCarta = mock(ICarta.class);
 	}
 
 	@Test
 	void test_unaEstraegiaParaColorSabeSiHayJugada() {
 		
-		assertTrue(estrategia.hayJuego(dosDePicaRojo, tresDePicaRojo, dosDePicaRojo, tresDePicaRojo, cuatroDePicaRojo));
+		when(unaCarta.getPalo()).thenReturn("Picas");
+		
+		assertTrue(estrategia.hayJuego(unaCarta, unaCarta, unaCarta, unaCarta, unaCarta));
 		
 	}
 	
 	@Test
 	void test_unaEstraegiaParaColorSabeSiNoHayJugada() {
 		
-		assertFalse(estrategia.hayJuego(dosDePicaRojo, tresDePicaRojo, dosDePicaRojo, tresDePicaRojo, cuatroDePicaAzul));
+		when(unaCarta.getPalo()).thenReturn("Picas");
+		when(otraCarta.getPalo()).thenReturn("Corazones");
+		
+		assertFalse(estrategia.hayJuego(unaCarta, unaCarta, unaCarta, unaCarta, otraCarta));
 		
 	}
 	

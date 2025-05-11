@@ -1,38 +1,43 @@
 package unq.po2.tp9.estrategiaDePokerStatus;
 
+import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import unq.po2.tp9.carta.Carta;
 import unq.po2.tp9.carta.ICarta;
 
 class EstrategiaParaPoquerTest {
 
 	private EstrategiaParaPoquer estrategia;
-	private ICarta dosDeDiamantes;
-	private ICarta tresCorazones;
+	private ICarta unaCarta;
+	private ICarta otraCarta;
 	
 	
 	@BeforeEach
 	private void setUp() {
 		
 		estrategia = new EstrategiaParaPoquer();
-		dosDeDiamantes = new Carta(2, "Diamante");
-		tresCorazones = new Carta(3, "Corazones");
+		unaCarta   = mock(ICarta.class);
+		otraCarta  = mock(ICarta.class);
 	}
 	
 	@Test
 	void test_unaEstrategiaDePokerSabeSiHayJuego() {
 		
-		assertTrue(estrategia.hayJuego(tresCorazones, tresCorazones, tresCorazones, dosDeDiamantes, tresCorazones));
+		when(unaCarta.getValor()).thenReturn(2);
+		when(otraCarta.getValor()).thenReturn(1);
+		
+		assertTrue(estrategia.hayJuego(otraCarta, otraCarta, otraCarta, unaCarta, otraCarta));
 	}
 	
 	@Test
 	void test_unaEstrategiaDePokerSabeSiNoHayJuego() {
-				
-		assertFalse(estrategia.hayJuego(tresCorazones, tresCorazones, tresCorazones, tresCorazones, tresCorazones));
+		
+		when(unaCarta.getValor()).thenReturn(2);
+		
+		assertFalse(estrategia.hayJuego(unaCarta, unaCarta, unaCarta, unaCarta, unaCarta));
 		
 	}
 	
@@ -40,7 +45,6 @@ class EstrategiaParaPoquerTest {
 	void test_unaEstrategiaDePokerVerificaSiHayJuego() {
 				
 		assertEquals("Poquer", estrategia.verificar());
-		
 	}
 
 }

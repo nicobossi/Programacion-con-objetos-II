@@ -6,16 +6,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import unq.po2.tp9.carta.Carta;
+import unq.po2.tp9.carta.ICarta;
 
 class PoquerStatusTest {
 
 	private PoquerStatus poquer;
-	private Carta tresDiamantes;
-	private Carta dosDeDiamantes;
-	private Carta cuatroDePica;
-	private Carta cuatroDeCorazones;
-	private Carta dosDePicas;
-	private Carta cincoDeDiamantes;
+	private ICarta tresDiamantes;
+	private ICarta dosDeDiamantes;
+	private ICarta cuatroDePica;
+	private ICarta cuatroDeCorazones;
+	private ICarta dosDePicas;
+	private ICarta cincoDeDiamantes;
 	
 	@BeforeEach
 	private void setUp() {
