@@ -12,13 +12,13 @@ public class Carta implements ICarta {
 	}
 
 	@Override
-	public Boolean esSuperior(Carta unaCarta) {
+	public Boolean esSuperior(ICarta unaCarta) {
 		
 		return getValor() > unaCarta.getValor();
 	}
 
 	@Override
-	public Boolean esDePalo(Carta unaCarta) {
+	public Boolean esDePalo(ICarta unaCarta) {
 		
 		return getPalo() == unaCarta.getPalo();
 	}

@@ -3,6 +3,8 @@ package unq.po2.tp9.estrategiaDePokerStatus;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Stream;
+
 import unq.po2.tp9.carta.ICarta;
 import unq.po2.tp9.poquerStatus.PoquerStatus;
 
@@ -18,23 +20,15 @@ public class ProvedorDeEstrategias {
 	public IEstrategiaDePoker estrategiaPara(PoquerStatus poquerStatus, ICarta carta1, ICarta carta2, ICarta carta3, ICarta carta4,
 			ICarta carta5) {
 		
-		try {
-			
-			return findEstrategia(carta1, carta2, carta3, carta4, carta5);
-		}
-		catch(NoSuchElementException e) {
-			
-			return new EstrategiaSinJuagada();
-		}
-		
-		
+		return findEstrategia(carta1, carta2, carta3, carta4, carta5).toList().getFirst();
+
 	}
 
-	private IEstrategiaDePoker findEstrategia(ICarta carta1, ICarta carta2, ICarta carta3, ICarta carta4, ICarta carta5) {
+	private Stream<IEstrategiaDePoker> findEstrategia(ICarta carta1, ICarta carta2, ICarta carta3, ICarta carta4, ICarta carta5) {
 		
-		return getEstrategias().stream().filter(unaEstrategia -> unaEstrategia.hayJuego(carta1, carta2, carta3, carta4, carta5)).toList().getFirst();
+		return getEstrategias().stream().filter(unaEstrategia -> unaEstrategia.hayJuego(carta1, carta2, carta3, carta4, carta5));
 	}
-	
+
 	private List<IEstrategiaDePoker> getEstrategias() {
 		
 		return this.estrategias;

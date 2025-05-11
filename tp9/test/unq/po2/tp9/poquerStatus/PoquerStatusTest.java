@@ -1,60 +1,59 @@
 package unq.po2.tp9.poquerStatus;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import unq.po2.tp9.carta.Carta;
 import unq.po2.tp9.carta.ICarta;
 
 class PoquerStatusTest {
 
 	private PoquerStatus poquer;
-	private ICarta tresDiamantes;
-	private ICarta dosDeDiamantes;
-	private ICarta cuatroDePica;
-	private ICarta cuatroDeCorazones;
-	private ICarta dosDePicas;
-	private ICarta cincoDeDiamantes;
+	private ICarta unaCarta;
+	private ICarta otraCarta;
 	
 	@BeforeEach
 	private void setUp() {
 		
-		poquer = new PoquerStatus();
-		tresDiamantes = new Carta(3, "Diamantes");
-		dosDeDiamantes = new Carta(2, "Diamantes");
-		cuatroDePica = new Carta(4, "Pica");
-		cuatroDeCorazones = new Carta(4, "Corazones");
-		dosDePicas = new Carta(2, "Picas");
-		cincoDeDiamantes = new Carta(5, "Diamantes");
+		poquer    = new PoquerStatus();
+		unaCarta  = mock(ICarta.class);
+		otraCarta = mock(ICarta.class);
 	}
 	
 	@Test
 	void test_pokerStatusIndicaQueHayPoquer() {
 		
-		Carta dosDePicas = new Carta(2, "Picas");
-		Carta cincoDeDiamantes = new Carta(5, "Diamantes");
+		when(unaCarta.getValor()).thenReturn(1);
+		when(otraCarta.getValor()).thenReturn(2);
 		
-		assertEquals("Poquer", poquer.verificar(dosDePicas, dosDePicas, dosDePicas, dosDePicas, cincoDeDiamantes));
+		assertEquals("Poquer", poquer.verificar(unaCarta, unaCarta, unaCarta, unaCarta, otraCarta));
 	}
 	
 	@Test
 	void test_pokerStatusIndicaQueNoHayNingunaJugada() {
 		
-		assertEquals("Nada", poquer.verificar(dosDePicas, cincoDeDiamantes, tresDiamantes, dosDePicas, tresDiamantes));
+		when(unaCarta.getPalo()).thenReturn("Corazones", "Diamantes");
+		when(unaCarta.getValor()).thenReturn(1);
+		
+		assertEquals("Nada", poquer.verificar(unaCarta, unaCarta, unaCarta, unaCarta, unaCarta));
 	}
 	
 	@Test
 	void test_pokerStatusIndicaQueHayTrio() {
 		
-		assertEquals("Trio", poquer.verificar(cuatroDePica, cuatroDeCorazones, cuatroDeCorazones, dosDeDiamantes, tresDiamantes));
+		when(unaCarta.getValor()).thenReturn(1);
+		when(otraCarta.getValor()).thenReturn(2);
+		
+		assertEquals("Trio", poquer.verificar(unaCarta, unaCarta, unaCarta, otraCarta, otraCarta));
 	}
 	
 	@Test
 	void test_pokerStatusIndicaQueHayColor() {
-				
-		assertEquals("Color", poquer.verificar(tresDiamantes, tresDiamantes, dosDeDiamantes, dosDeDiamantes, cincoDeDiamantes));
+		
+		when(unaCarta.getPalo()).thenReturn("Picas");
+		
+		assertEquals("Color", poquer.verificar(unaCarta, unaCarta, unaCarta, unaCarta, unaCarta));
 	}
 
 }
