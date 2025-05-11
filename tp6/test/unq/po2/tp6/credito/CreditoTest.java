@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 
 import unq.po2.tp6.banco.Tesoro;
 import unq.po2.tp6.cliente.Cliente;
-import unq.po2.tp6.iOperacionFinanciera.IOperacionFinanciera;
 import unq.po2.tp6.solicitudDeCredito.SolicitudDeCredito;
 import unq.po2.tp6.solicitudDeCredito.SolicitudPersonal;
 

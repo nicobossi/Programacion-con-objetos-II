@@ -1,9 +1,7 @@
 package unq.po2.tp6.banco;
 
 import unq.po2.tp6.cliente.Cliente;
-import unq.po2.tp6.credito.Credito;
 import unq.po2.tp6.iOperacionFinanciera.IOperacionFinanciera;
-import unq.po2.tp6.solicitudDeCredito.SolicitudDeCredito;
 
 public class Tesoro {
 	

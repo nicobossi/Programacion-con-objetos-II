@@ -6,4 +6,5 @@ public interface ISolicitudFinanciera {
 
 	public Boolean evaluar();
 	public void aceptar(Tesoro unBanco) throws Exception;
+	public Double montoAceptado();
 }

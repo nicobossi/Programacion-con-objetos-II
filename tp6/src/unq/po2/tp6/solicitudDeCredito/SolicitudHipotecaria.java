@@ -28,7 +28,7 @@ public class SolicitudHipotecaria extends SolicitudDeCredito {
 
 	private Boolean superaGarantia() {
 		
-		return montoAceptado() > getGarantia().valorFiscal() / 100 * 70;
+		return getMontoSolicitado() > getGarantia().valorFiscal() / 100 * 70;
 	}
 
 	private IGarantia getGarantia() {

@@ -6,8 +6,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import unq.po2.tp6.cliente.Cliente;
-import unq.po2.tp6.solicitudDeCredito.SolicitudDeCredito;
-import unq.po2.tp6.solicitudDeCredito.SolicitudPersonal;
 
 public class SolicitudPersonalTest {
 	

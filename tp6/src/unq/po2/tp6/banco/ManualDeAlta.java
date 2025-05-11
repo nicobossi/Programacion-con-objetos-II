@@ -3,12 +3,12 @@ package unq.po2.tp6.banco;
 import java.util.ArrayList;
 import java.util.List;
 import unq.po2.tp6.cliente.Cliente;
-import unq.po2.tp6.solicitudDeCredito.SolicitudDeCredito;
+import unq.po2.tp6.iSolicitudFinanciera.ISolicitudFinanciera;
 
 class ManualDeAlta {
 	
 	private List<Cliente> clientes;
-	private List<SolicitudDeCredito> solicitudes;
+	private List<ISolicitudFinanciera> solicitudes;
 	
 	public ManualDeAlta() {
 		
@@ -28,22 +28,22 @@ class ManualDeAlta {
 	}
 
 
-	public void agregarSolicitud(SolicitudDeCredito solicitud) {
+	public void agregarSolicitud(ISolicitudFinanciera solicitud) {
 		
 		getSolicitudes().add(solicitud);
 	}
 
-	public Boolean estaLaSolicitud(SolicitudDeCredito solicitud) {
+	public Boolean estaLaSolicitud(ISolicitudFinanciera solicitud) {
 		
 		return getSolicitudes().contains(solicitud);
 	}
 	
 	private void initializeSolicitudes() {
 		
-		this.solicitudes = new ArrayList<SolicitudDeCredito>();
+		this.solicitudes = new ArrayList<ISolicitudFinanciera>();
 	}
 	
-	private List<SolicitudDeCredito> getSolicitudes() {
+	private List<ISolicitudFinanciera> getSolicitudes() {
 		
 		return this.solicitudes;
 	}
@@ -61,7 +61,7 @@ class ManualDeAlta {
 
 	Double cantidadDeDesembolsos() {
 		
-		return getSolicitudes().stream().mapToDouble(SolicitudDeCredito :: montoAceptado).sum();
+		return getSolicitudes().stream().mapToDouble(ISolicitudFinanciera :: montoAceptado).sum();
 	}
 
 
