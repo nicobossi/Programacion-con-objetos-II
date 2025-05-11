@@ -14,9 +14,22 @@ public class EstrategiaSinJuagada extends EstrategiaDePokerStatus {
 
 	private Boolean estaSiJuego(List<ICarta> cartas) {
 		
-		return cantidadConMismoValor(cartas.getFirst(), cartas) != 4 && 
-			cantidadConMismoValor(cartas.getFirst(), cartas) != 3 && 
-			   cantidadConMismoColor(cartas.getFirst(), cartas) != 5 ;
+		return !esPoquer(cartas) && !esTrio(cartas) && !esColor(cartas);
+	}
+
+	protected boolean esColor(List<ICarta> cartas) {
+		
+		return hayColor(cartas.getFirst(), cartas, 5);
+	}
+
+	protected boolean esTrio(List<ICarta> cartas) {
+		
+		return hayValor(cartas.getFirst(), cartas, 3);
+	}
+
+	protected boolean esPoquer(List<ICarta> cartas) {
+		
+		return hayValor(cartas.getFirst(), cartas, 4);
 	}
 
 	@Override

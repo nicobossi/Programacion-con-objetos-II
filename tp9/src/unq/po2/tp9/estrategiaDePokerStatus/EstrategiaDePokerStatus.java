@@ -21,6 +21,16 @@ public abstract class EstrategiaDePokerStatus implements IEstrategiaDePoker {
 		
 		return cartas.stream().filter(cartaActual -> cartaActual.getPalo() == carta.getPalo()).count();
 	}
+	
+	protected Boolean hayValor(ICarta carta, List<ICarta> cartas, int cantidad) {
+		
+		return cantidadConMismoValor(carta, cartas) == cantidad;
+	}
+	
+	protected Boolean hayColor(ICarta carta, List<ICarta> cartas, int cantidad) {
+
+		return cantidadConMismoColor(carta, cartas) == cantidad;
+	}
 
 	
 	protected List<ICarta> cartas(ICarta carta1, ICarta carta2, ICarta carta3, ICarta carta4, ICarta carta5) {

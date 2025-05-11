@@ -20,13 +20,7 @@ public class EstrategiaParaPoquer extends EstrategiaDePokerStatus {
 	
 	private Boolean hayPoquer(List<ICarta> cartas) {
 		
-		return cartas.stream().anyMatch(carta -> hayPokerCon(carta, cartas));
+		return cartas.stream().anyMatch(carta -> hayValor(carta, cartas, 4));
 
 	}
-	
-	private Boolean hayPokerCon(ICarta carta, List<ICarta> cartas) {
-		
-		return cantidadConMismoValor(carta, cartas) == 4;
-	}
-
 }

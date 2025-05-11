@@ -20,12 +20,7 @@ public class EstrategiaParaColor extends EstrategiaDePokerStatus {
 	
 	private Boolean hayColor(List<ICarta> cartas) {
 		
-		return cartas.stream().anyMatch(carta -> hayColorCon(carta, cartas));
+		return cartas.stream().anyMatch(carta -> hayColor(carta, cartas, 5));
 
-	}
-	
-	private Boolean hayColorCon(ICarta carta, List<ICarta> cartas) {
-		
-		return cantidadConMismoColor(carta, cartas) == 5;
 	}
 }

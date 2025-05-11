@@ -15,15 +15,10 @@ public class EstrategiaParaTrio extends EstrategiaDePokerStatus{
 
 	private Boolean hayTrio(List<ICarta> cartas) {
 		
-		return cartas.stream().anyMatch(carta -> hayTrioCon(carta, cartas));
+		return cartas.stream().anyMatch(carta -> hayValor(carta, cartas, 3));
 
 	}
 	
-	private Boolean hayTrioCon(ICarta carta, List<ICarta> cartas) {
-		
-		return cantidadConMismoValor(carta, cartas) == 3;
-	}
-
 
 	@Override
 	public String verificar() {
